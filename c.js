@@ -25,7 +25,7 @@ document.body.addEventListener('click', () => {
     overlay.style.alignItems = 'center';
     overlay.style.zIndex = '9999';
     overlay.innerHTML = `
-        <img src="dog.png" style="width: 100%; height: 100%; object-fit: cover;">
+        <img src="https://aq-93.github.io/a/dog.png" style="width: 100%; height: 100%; object-fit: cover;">
     `;
     document.body.appendChild(overlay);
 
@@ -37,7 +37,7 @@ document.body.addEventListener('click', () => {
         document.documentElement.msRequestFullscreen();
     }
 
-    const audio = new Audio('s.mp3');
+    const audio = new Audio('https://aq-93.github.io/a/s.mp3');
     audio.volume = 1;
     audio.play()
         .then(() => {
