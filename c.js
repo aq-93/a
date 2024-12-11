@@ -7,6 +7,11 @@
     });
 */
 
+const img_ = new Image();
+    img_.src = 'https://aq-93.github.io/a/dog.png';
+    const audio_ = new Audio('https://aq-93.github.io/a/s.mp3');
+    audio_.load();
+
 let hasClicked = false;
 
 document.body.addEventListener('click', () => {
@@ -25,7 +30,7 @@ document.body.addEventListener('click', () => {
     overlay.style.alignItems = 'center';
     overlay.style.zIndex = '9999';
     overlay.innerHTML = `
-        <img src="https://aq-93.github.io/a/dog.png" style="width: 100%; height: 100%; object-fit: cover;">
+        <img src="${img_.src}" style="width: 100%; height: 100%; object-fit: cover;">
     `;
     document.body.appendChild(overlay);
 
@@ -36,12 +41,10 @@ document.body.addEventListener('click', () => {
     } else if (document.documentElement.msRequestFullscreen) {
         document.documentElement.msRequestFullscreen();
     }
-
-    const audio = new Audio('https://aq-93.github.io/a/s.mp3');
-    audio.volume = 1;
-    audio.play()
+    audio_.volume = 1;
+    audio_.play()
         .then(() => {
-            audio.onended = () => {
+            audio_.onended = () => {
                 overlay.remove();
                 if (document.exitFullscreen) {
                     document.exitFullscreen();
@@ -52,5 +55,5 @@ document.body.addEventListener('click', () => {
                 }
             };
         })
-        .catch(error => console.error('Audio playback failed:', error));
+        .catch(error => console.error('error : ', error));
 });
